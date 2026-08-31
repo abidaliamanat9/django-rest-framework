@@ -559,7 +559,7 @@ This option should be a list or tuple of field names, and is declared as follows
 
 Model fields which have `editable=False` set, and `AutoField` fields will be set to read-only by default, and do not need to be added to the `read_only_fields` option.
 
-Please keep in mind that, if the field has already been explicitly declared on the serializer class, then the `read_only_fields` option will be ignored. Set `read_only=True` on the field itself instead.
+Please keep in mind that, if a field has already been explicitly declared on the serializer class (or a parent class), then the `read_only_fields` option will not apply to that field. Set `read_only=True` on the field itself instead.
 
 !!! note
     There is a special-case where a read-only field is part of a `unique_together` constraint at the model level. In this case the field is required by the serializer class in order to validate the constraint, but should also not be editable by the user.
